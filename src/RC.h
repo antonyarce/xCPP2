@@ -8,7 +8,7 @@
 #ifndef RC_H_
 #define RC_H_
 
-class RC // Clase para llevar la cuenta de referencias
+class RC // Clase para llevar la cuenta de referencias.
 {
     private:
     int count; // Contador

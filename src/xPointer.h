@@ -8,6 +8,7 @@
 #ifndef XPOINTER_H_
 #define XPOINTER_H_
 #include "RC.h"
+#include "jsoncpp/json.h"
 
 template < typename T > class xPointer
 {

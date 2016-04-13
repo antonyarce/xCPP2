@@ -6,6 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+#include "jsoncpp/json.h"
 #include "xPointer.h"
 #include <iostream>
 #include "testClass.h"
