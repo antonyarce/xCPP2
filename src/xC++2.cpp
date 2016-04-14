@@ -24,6 +24,18 @@ int main() {
 
 	    }
 
+	   Json::Value minimizer;
+	   Json::Value minParameters;
+	   minParameters["MinimumRMS"] = 0.2;
+	   minParameters["sgbUpdated"] = true;
+	   minimizer["Minimizer"]["parameters"] = minParameters;
+	   minimizer["algorithm"] = "TruncatedNewton";
+
+	   // Output to see the result
+	   cout<<"creating nested Json::Value Example pretty print: "
+	   <<endl<<minimizer.toStyledString()
+	   <<endl;
+
 	cout << "Works" << endl; // prints !!!Hello World!!!
 	return 0;
 }
