@@ -11,17 +11,25 @@
 #include "xObject.h"
 #include "xJson.h"
 #include "xPointer.h"
+#include"xMemoryManagerFinal.h"
 #include <iostream>
 using namespace std;
 
 int main() {
 
-	// Prueba xJson y xPointer
+	int n=150;
+	xMemoryManagerFinal::solicitarMemoria(n);//Solicita el bloque de memoria.
+	cout<<"Espacio de "<<n<<" bytes solicitado al heap"<<endl;
+	cout<<"Comienza en la dirección: "<<xMemoryManagerFinal::inicio<<endl;
+	cout<<"Termina en la dirección: "<<xMemoryManagerFinal::final<<"\n\n\n";
 
+	TestClassA* tc = new TestClassA();
+
+
+	// Prueba xJson y xPointer
 	xJson CJS;
 
 	TestClassA testClass;
-	//TestClassA* pTc = &testClass;
 	xPointer<TestClassA> xp(&testClass);
 
 	cout<<xp.pData<<endl;

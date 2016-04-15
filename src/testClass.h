@@ -9,10 +9,18 @@
 #define TESTCLASS_H_
 #include "xObject.h"
 #include "jsoncpp/json.h"
+#include "xMemoryManagerFinal.h"
 
 class TestClassA : public xObject  //Clase que hereda de xObject
 {
 public:
+
+	void* operator new(size_t)
+	{
+
+		return xMemoryManagerFinal::xCalloc(sizeof(TestClassA));
+	}
+
 	void Serialize( Json::Value& root ) // Sobre escribe los metodos
 	{
 	   // serialize primitives
