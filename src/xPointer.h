@@ -12,7 +12,7 @@
 
 template < typename T > class xPointer
 {
-private:
+public:
     T*    pData;       // Puntero
     RC* reference; // Contador de referencias
 

@@ -7,35 +7,32 @@
 //============================================================================
 
 #include "jsoncpp/json.h"
+#include "testClass.h"
+#include "xObject.h"
+#include "xJson.h"
 #include "xPointer.h"
 #include <iostream>
-#include "testClass.h"
 using namespace std;
 
 int main() {
 
-	xPointer<testClass> xP1(new testClass(1)); // Se define un xPointer a una clase de prueba
-	   {
-		xPointer<testClass> q = xP1;
+	// Prueba xJson y xPointer
+
+	xJson CJS;
+
+	TestClassA testClass;
+	//TestClassA* pTc = &testClass;
+	xPointer<TestClassA> xp(&testClass);
+
+	cout<<xp.pData<<endl;
+
+	std::string input = "{ \"testintA\" : 42, \"testfloatA\" : 3.14159, \"teststringA\" : \"foo\", \"testboolA\" : true }\n";
+	CJS.Deserialize( xp.pData, input );
+
+	std::string output;
+	CJS.Serialize( xp.pData, output);
 
 
-	    xPointer<testClass> r;
-	    r = xP1;
 
-	    }
-
-	   Json::Value minimizer;
-	   Json::Value minParameters;
-	   minParameters["MinimumRMS"] = 0.2;
-	   minParameters["sgbUpdated"] = true;
-	   minimizer["Minimizer"]["parameters"] = minParameters;
-	   minimizer["algorithm"] = "TruncatedNewton";
-
-	   // Output to see the result
-	   cout<<"creating nested Json::Value Example pretty print: "
-	   <<endl<<minimizer.toStyledString()
-	   <<endl;
-
-	cout << "Works" << endl; // prints !!!Hello World!!!
 	return 0;
 }

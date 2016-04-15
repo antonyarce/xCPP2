@@ -7,24 +7,17 @@
 
 #ifndef XOBJECT_H_
 #define XOBJECT_H_
+#include "jsoncpp/json.h"
+#include "testClass.h"
 
-class xObject {
+
+class xObject // Clase padre de las clases prueba
+{
 public:
-	xJson* serialize(){
+   virtual ~xObject( void ) {};
+   virtual void Serialize( Json::Value& root ) =0;
+   virtual void Deserialize( Json::Value& root) =0;
 
-	}
-
-	bool deserialize(xJson*){
-
-	}
-
-	char* getClassName(){
-
-	}
-
-	long getID(){
-
-	}
 };
 
 #endif /* XOBJECT_H_ */
