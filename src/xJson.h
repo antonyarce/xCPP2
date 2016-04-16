@@ -24,7 +24,7 @@ public:
 
 	   Json::StyledWriter writer;
 	   output = writer.write( serializeRoot );
-	   cout<<"Serialize: \n"<<output <<endl;
+	   cout<<"xJson serializó: \n"<<output <<endl;
 
 	   return true;
 	}
@@ -42,7 +42,7 @@ public:
 
 	   pObj->Deserialize(deserializeRoot);
 
-	   cout<<"Deserialize: \n"<<input<<endl;
+	   cout<<"xJson deserializó: \n"<<input<<endl;
 
 	   return true;
 	}

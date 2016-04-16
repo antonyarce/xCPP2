@@ -17,7 +17,6 @@ public:
 
 	void* operator new(size_t)
 	{
-
 		return xMemoryManagerFinal::xCalloc(sizeof(TestClassA));
 	}
 
@@ -37,6 +36,14 @@ public:
 	   m_fTestFloat = root.get("testfloatA", 0.0).asDouble();
 	   m_TestString = root.get("teststringA", "").asString();
 	   m_bTestBool = root.get("testboolA", false).asBool();
+	}
+
+	char* getClassName(){
+		return "TestClassA";
+	}
+
+	long getId(){
+		return xMemoryManagerFinal::ListaMemoria.ultimo->info.Id;
 	}
 
 

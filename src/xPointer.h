@@ -15,6 +15,7 @@ template < typename T > class xPointer
 public:
     T*    pData;       // Puntero
     RC* reference; // Contador de referencias
+    int ID;
 
 public:
     xPointer() : pData(0), reference(0)
@@ -23,6 +24,7 @@ public:
         reference = new RC();
         // Incrementa el contador
         reference->AddRef();
+
     }
 
     xPointer(T* pValue) : pData(pValue), reference(0)
@@ -31,6 +33,7 @@ public:
         reference = new RC();
         // Incrementa el contador
         reference->AddRef();
+        ID = xMemoryManagerFinal::ListaMemoria.ultimo->info.Id;
     }
 
     xPointer(const xPointer<T>& sp) : pData(sp.pData), reference(sp.reference)

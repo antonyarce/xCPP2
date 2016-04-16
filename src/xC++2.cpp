@@ -23,22 +23,31 @@ int main() {
 	cout<<"Comienza en la dirección: "<<xMemoryManagerFinal::inicio<<endl;
 	cout<<"Termina en la dirección: "<<xMemoryManagerFinal::final<<"\n\n\n";
 
-	TestClassA* tc = new TestClassA();
 
 
-	// Prueba xJson y xPointer
+	// Prueba
 	xJson CJS;
 
-	TestClassA testClass;
-	xPointer<TestClassA> xp(&testClass);
+	TestClassA* tc1 = new TestClassA();
+	xPointer<TestClassA> xp1(tc1);
+	cout<<"ClassName: "<<xp1.pData->getClassName()<<", ID: "<<xp1.pData->getId()<<endl;
 
-	cout<<xp.pData<<endl;
 
 	std::string input = "{ \"testintA\" : 42, \"testfloatA\" : 3.14159, \"teststringA\" : \"foo\", \"testboolA\" : true }\n";
-	CJS.Deserialize( xp.pData, input );
+	CJS.Deserialize( xp1.pData, input );
 
 	std::string output;
-	CJS.Serialize( xp.pData, output);
+	CJS.Serialize( xp1.pData, output);
+	cout<<output<<endl;
+
+	TestClassA* tc2 = new TestClassA();
+	xPointer<TestClassA> xp2(tc2);
+
+	TestClassA* tc3 = new TestClassA();
+	xPointer<TestClassA> xp3(tc3);
+
+	TestClassA* tc4 = new TestClassA();
+	xPointer<TestClassA> xp4(tc4);
 
 
 

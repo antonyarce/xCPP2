@@ -107,6 +107,7 @@ void* xMemoryManagerFinal::xCalloc(int cantidad)
 		if(ListaMemoria.ultimo->info.final+1+cantidad > final)
 			{
 			cout<<"Memoria insuficiente para almacenar "<<cantidad<<" bytes"<<endl;
+			dir = NULL;
 			}
 		else
 		{

@@ -17,6 +17,8 @@ public:
    virtual ~xObject( void ) {};
    virtual void Serialize( Json::Value& root ) =0;
    virtual void Deserialize( Json::Value& root) =0;
+   virtual char * getClassName() =0;
+   virtual long getId() =0;
 
 };
 
